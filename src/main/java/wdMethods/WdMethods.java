@@ -25,7 +25,7 @@ public interface WdMethods {
 		public void verifyDisplayed(WebElement ele);
 		public String getcurrentURL();
 		public void explicitWaitVisibilityOfElement(WebElement element, int time);
-		
+		public boolean verifyPageContentForText(String textToSearch,String pageName);
 }
 
 

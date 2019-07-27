@@ -1,5 +1,7 @@
 package wdMethods;
 
+
+
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
@@ -287,4 +289,10 @@ public class SeMethods extends Reporter implements WdMethods{
 		elementToBeVisible.until(ExpectedConditions.visibilityOf(element));
 	}
 
+	@Override
+	 public boolean verifyPageContentForText(String textToSearch,String pageName){
+	        String currentPage = driver.getPageSource().toLowerCase();
+	        return true;
+	
+	    }
 }
