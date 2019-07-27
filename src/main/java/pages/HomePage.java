@@ -2,9 +2,11 @@ package pages;
 
 import org.openqa.selenium.support.PageFactory;
 
+
 import wdMethods.ProjectMethods;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
 import org.openqa.selenium.support.How;
 
 public class HomePage extends ProjectMethods {
@@ -23,25 +25,46 @@ public class HomePage extends ProjectMethods {
 	@FindBy(how=How.XPATH,using="//*[@type='password']")
 	private WebElement field_password;
 	
-	@FindBy(how=How.XPATH,using="//*[text()='Recently Viewed']")
+	@FindBy(how=How.XPATH,using="//*[text()='Personal Boards']")
 	private WebElement text_loginConfirmation;
 	
+	@FindBy(how=How.XPATH,using="//*[@value='Log In']")
+	private WebElement button_clickSubmit;
 	
-	public void clickLoginButton() {
+	
+	
+	
+	public HomePage clickLoginButton() {
 		
 		click(button_login);
+		return this;
 	}
 	
-	public void enterEmailandPassword(String email, String password) {
+	public HomePage enterEmailandPassword(String email,String password) {
+		
+
 		
 		type(field_email,email);
 		type(field_password,password);
+		return this;
 		
 	}
 	
-	public void verifyLogin() {
+	
+
+	public HomePage logintoUserProfile() {
+		
+		click(button_clickSubmit);
+		return this;
+	}
+	
+public BoardsPage verifyLogin() {
 		
 		verifyDisplayed(text_loginConfirmation);
+		return new BoardsPage();
 	}
-
+	
+	
+	
+	
 }

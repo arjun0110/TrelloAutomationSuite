@@ -22,7 +22,9 @@ public interface WdMethods {
 		public void selectDropDownUsingIndex(WebElement ele, int index) ;
 		public boolean verifyTitle(String expectedTitle);
 		public void closeAllBrowsers();
-		
+		public void verifyDisplayed(WebElement ele);
+		public String getcurrentURL();
+		public void explicitWaitVisibilityOfElement(WebElement element, int time);
 		
 }
 

@@ -1,5 +1,7 @@
 package wdMethods;
 
+import java.util.HashMap;
+
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
@@ -8,10 +10,10 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
 
-import utils.DataInputProvider;
+
 
 public class ProjectMethods extends SeMethods{
-
+	public static HashMap<String,String> catHash = new HashMap<>();
 	public String browserName;
 	public String dataSheetName;
 
@@ -48,10 +50,7 @@ public class ProjectMethods extends SeMethods{
 
 	}
 
-	@DataProvider(name="fetchData")
-	public  Object[][] getData(){
-		return DataInputProvider.getSheet(dataSheetName);		
-	}	
+	
 
 }
 

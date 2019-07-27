@@ -40,6 +40,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+
+
 import utils.Reporter;
 
 public class SeMethods extends Reporter implements WdMethods{
@@ -246,7 +248,18 @@ public class SeMethods extends Reporter implements WdMethods{
 		
 	}
 
-
+	@Override
+	public void verifyDisplayed(WebElement ele) {
+		try {
+			if(ele.isDisplayed()) {
+				reportStep("The element "+ele+" is visible","PASS");
+			} else {
+				reportStep("The element "+ele+" is not visible","FAIL");
+			}
+		} catch (WebDriverException e) {
+			reportStep("WebDriverException : "+e.getMessage(), "FAIL");
+		} 
+	}
 
 	@Override
 	public long takeSnap() {
@@ -261,7 +274,17 @@ public class SeMethods extends Reporter implements WdMethods{
 		return number;
 	}
 
-
-
+	@Override
+	public String getcurrentURL() {
+		String URL;
+		  URL=driver.getCurrentUrl();
+		  System.out.println(URL);
+		  return URL;
+	}
+	@Override
+	public void explicitWaitVisibilityOfElement(WebElement element, int time) {
+		WebDriverWait elementToBeVisible = new WebDriverWait(driver, time);
+		elementToBeVisible.until(ExpectedConditions.visibilityOf(element));
+	}
 
 }

@@ -18,12 +18,9 @@ public abstract class Reporter {
 	public static ExtentReports extent;
 	public static ExtentTest test, suiteTest;
 	public String testCaseName, testNodes, testDescription, category, authors;
-	@AfterSuite
-	//public void zipFolder() {
-		//ZipUtil.pack(new File("./reports/imagesnew"), new File("./reports/imagesnew.zip"));
-	//}
+	
 	public void startResult() {
-		html = new ExtentHtmlReporter("./reports/images/stagingreportnew.html");
+		html = new ExtentHtmlReporter("./reports/images/trelloautomationreport.html");
 		html.setAppendExisting(true);
 		extent = new ExtentReports();		
 		extent.attachReporter(html);	
