@@ -166,20 +166,7 @@ public class SeMethods extends Reporter implements WdMethods{
 		} 
 	}
 
-	public void clickWithNoSnap(WebElement ele) {
-		String text = "";
-		try {
-			WebDriverWait wait = new WebDriverWait(driver, 10);
-			wait.until(ExpectedConditions.elementToBeClickable(ele));	
-			text = ele.getText();
-			ele.click();			
-			reportStep("The element :"+text+"  is clicked.", "PASS",false);
-		} catch (InvalidElementStateException e) {
-			reportStep("The element: "+text+" could not be clicked", "FAIL",false);
-		} catch (WebDriverException e) {
-			reportStep("Unknown exception occured while clicking in the field :","FAIL",false);
-		} 
-	}
+	
 
 	@Override
 	public String getText(WebElement ele) {	
@@ -202,15 +189,7 @@ public class SeMethods extends Reporter implements WdMethods{
 		return bReturn;
 	}
 
-	public String getAttribute(WebElement ele, String attribute) {		
-		String bReturn = "";
-		try {
-			bReturn=  ele.getAttribute(attribute);
-		} catch (WebDriverException e) {
-			reportStep("The element: "+ele+" could not be found.", "FAIL");
-		} 
-		return bReturn;
-	}
+	
 
 	@Override
 	public void selectDropDownUsingText(WebElement ele, String value) {
@@ -254,9 +233,16 @@ public class SeMethods extends Reporter implements WdMethods{
 
 
 
+
+
 	@Override
-	public void typeafterclearing(WebElement ele, String data) {
-		// TODO Auto-generated method stub
+	public void closeAllBrowsers() {
+		try {
+			driver.quit();
+			reportStep("The opened browsers are closed","PASS", false);
+		} catch (Exception e) {
+			reportStep("Unexpected error occured in Browser","FAIL", false);
+		}
 		
 	}
 
@@ -264,16 +250,15 @@ public class SeMethods extends Reporter implements WdMethods{
 
 	@Override
 	public long takeSnap() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-
-
-	@Override
-	public void closeAllBrowsers() {
-		// TODO Auto-generated method stub
-		
+		long number = (long) Math.floor(Math.random() * 900000000L) + 10000000L; 
+		try {
+			FileUtils.copyFile(driver.getScreenshotAs(OutputType.FILE) , new File("./reports/images/"+number+".jpg"));
+		} catch (WebDriverException e) {
+			System.out.println("The browser has been closed.");
+		} catch (IOException e) {
+			System.out.println("The snapshot could not be taken");
+		}
+		return number;
 	}
 
 
