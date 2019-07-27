@@ -1,0 +1,59 @@
+1.A.TEST CASE NAME: Adding a new board
+
+Pre-requisite: A valid user profile exists.
+Steps:
+
+1. Launch the URL www.trello.com
+2. Click the login button 
+3. In the user name, give the valid existing email address
+4. In the password field, enter the matching password
+5. Click Login button
+6. In the home page, click new board button
+7. Enter the name and click create button
+8. The board should get added and displays in the page.
+
+
+1.B.TEST CASE NAME: Deleting a board
+
+Pre-requisite: A valid user profile exists and also a board created for that user.
+
+1. Launch the URL www.trello.com
+2. Click the login button 
+3. In the user name, give the valid existing email address
+4. In the password field, enter the matching password
+5. Click Login button
+6. Click the board and click the view more link
+7. Click the close now button
+8. In the verification pop up, click delete button
+9. Application navigates to permenantly delete page
+10. Click the permemantly delete link
+11. In the confirmation pop up, click the confirm button
+12. Navigate to boards page and the deleted board should not be displayed
+
+2.A. TEST CASE NAME: Add a new team
+
+Pre-requisite: A valid user profile exists.
+Steps:
+
+1. Launch the URL www.trello.com
+2. Click the login button 
+3. In the user name, give the valid existing email address
+4. In the password field, enter the matching password
+5. Click Login button
+6. In the home page, click add new team link
+7. Enter the name and click create button
+8. The team should get added and displays in the team page with tabs like board, settings.
+
+2.B.TEST CASE NAME: Deleting a team
+
+Pre-requisite: A valid user profile exists and also a team created for that user.
+
+1. Launch the URL www.trello.com
+2. Click the login button 
+3. In the user name, give the valid existing email address
+4. In the password field, enter the matching password
+5. Click Login button
+6. Click the team and from the teams page click the setting tab
+7. Click the delete this team link
+8. In the confirmation popup click delete button
+9. When the user navigates to team page the deleted team should not be displayed.

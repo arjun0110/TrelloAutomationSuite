@@ -22,8 +22,8 @@ public class CreateNewBoard extends ProjectMethods{
 		browserName="chrome";
 	}
 	@Test
-	public void verifysearch() {
-		
+	public void verifyBoards() {
+		try {
 		new HomePage()
 		.clickLoginButton()
 		.enterEmailandPassword("u.arjunkumar@gmail.com","Tester123$")
@@ -34,7 +34,10 @@ public class CreateNewBoard extends ProjectMethods{
 		.waitforAddnewButton()
 		.verifyBoardadded()
 		.deleteBoard();
-		
+		}
+		catch(Exception e) {
+			 e.printStackTrace();
+		}
 		
 		
 			

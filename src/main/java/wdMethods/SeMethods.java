@@ -280,7 +280,6 @@ public class SeMethods extends Reporter implements WdMethods{
 	public String getcurrentURL() {
 		String URL;
 		  URL=driver.getCurrentUrl();
-		  System.out.println(URL);
 		  return URL;
 	}
 	@Override
